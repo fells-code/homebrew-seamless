@@ -14,7 +14,7 @@ class SeamlessGlance < Formula
   end
 
   def install
-    bin.install "seamless-glance"
+    bin.install Dir["seamless-glance-*"].first => "seamless-glance"
   end
 
   test do
