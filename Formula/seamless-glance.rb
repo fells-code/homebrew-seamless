@@ -1,20 +1,21 @@
 class SeamlessGlance < Formula
   desc "Fast, read-only AWS TUI for cloud infrastructure visibility"
   homepage "https://seamlessglance.com"
-  version "0.1.0-beta.8"
+  license "Proprietary"
+  version "0.1.0-beta.10"
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v0.1.0-beta.8/seamless-glance-0.1.0-beta.8-aarch64-apple-darwin"
-    sha256 "95ca51e7e955a0268939713bee6706ebdfafbf96cb91dc16f9f20639596aaf7e"
+    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v0.1.0-beta.10/seamless-glance-0.1.0-beta.10-aarch64-apple-darwin"
+    sha256 "9cfc7929c4f7127f551352de024bdbeb987778a7fa4972d9c5fde799a65cd41f"
   elsif OS.mac?
-    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v0.1.0-beta.8/seamless-glance-0.1.0-beta.8-x86_64-apple-darwin"
-    sha256 "f014dd7dd1958254aaa2128f8883db86841f76e2bd27f8abbec1aa2bd03867c4"
+    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v0.1.0-beta.10/seamless-glance-0.1.0-beta.10-x86_64-apple-darwin"
+    sha256 "46f57177b67c94863543a17444235345fc89bdafbfb4675e433a7eaa93d92634"
   else
     odie "Seamless Glance is currently supported on macOS via Homebrew"
   end
 
   def install
-    bin.install Dir["seamless-glance-*"].first => "seamless-glance"
+    bin.install File.basename(url) => "seamless-glance"
   end
 
   test do
