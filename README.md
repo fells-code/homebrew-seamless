@@ -36,7 +36,7 @@ brew tap fellscode/seamless
 brew install seamless-glance
 
 # Or just
-brew install fellscode/seamless/seamless-glance
+brew install fells-code/seamless/seamless-glance
 ```
 
 ### macOS & Linux (alternative)
