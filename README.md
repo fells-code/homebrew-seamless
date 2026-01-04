@@ -28,7 +28,7 @@ Seamless Glance is designed to work with **locked-down, read-only IAM roles** an
 This tap provides prebuilt binaries for macOS.
 
 ```bash
-brew install fellscode/seamless/seamless-glance
+brew install fells-code/seamless/seamless-glance
 ```
 
 To upgrade an existing installation:
