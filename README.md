@@ -1,142 +1,83 @@
-# Seamless Glance
+# Seamless Glance (Homebrew)
 
-**Seamless Glance** is a fast, read-only terminal UI (TUI) for AWS that lets you
-instantly _see_ your cloud infrastructure — without clicking through the AWS Console.
+Seamless Glance is a **read-only terminal UI** for quickly understanding AWS environments without navigating the AWS Console.
 
-Think **“k9s for AWS”**.
+It provides fast, contextual visibility into common AWS services directly from your terminal.
 
 ---
 
 ## Features
 
-- Account overview with **month-to-date spend**
-- Visibility into:
-  - EC2
-  - ECS
-  - Lambda
-  - API Gateway (REST + HTTP)
-  - SQS (DLQs, in-flight messages)
-  - RDS
-  - Load Balancers
-  - VPCs & subnets
-- Keyboard-driven navigation
-- Command palette (`/ecs`, `/lambda`, `/vpc`, etc.)
-- Region switching (`←` / `→`)
-- Works with **read-only IAM roles**
-- No telemetry, no background agents
+- Account overview with region, refresh status, and month-to-date cost
+- EC2 instances (name, state, type, AZ)
+- Lambda functions
+- CloudWatch alarms (ALARM states highlighted)
+- RDS instances
+- Secrets Manager (rotation visibility only)
+- ECS clusters and services
+- API Gateway, SQS, VPC (basic views)
+
+Seamless Glance is designed to work with **locked-down, read-only IAM roles** and does not perform any write actions.
 
 ---
 
-## Installation
+## Installation (macOS)
 
-### macOS (recommended)
+### MacOS
+
+This tap provides prebuilt binaries for macOS.
 
 ```bash
-brew tap fellscode/seamless
-brew install seamless-glance
-
-# Or just
-brew install fells-code/seamless/seamless-glance
+brew install fellscode/seamless/seamless-glance
 ```
 
-### macOS & Linux (alternative)
+To upgrade an existing installation:
+
+```bash
+brew upgrade seamless-glance
+```
+
+---
+
+### Linux/MacOS Alternative
+
+#### Curl Install
 
 ```bash
 curl -fsSL https://seamlessglance.com/install.sh | bash
+seamless-glance --version
 ```
 
----
-
-## License Setup
-
-Seamless Glance requires a valid license file.
-
-1. Create the license directory:
-
-```bash
-mkdir -p ~/.seamless-glance
-```
-
-2. Place your license file at:
-
-```text
-~/.seamless-glance/license.json
-```
-
-3. Run the app:
+Then run:
 
 ```bash
 seamless-glance
 ```
 
-If the license is missing or invalid, the app will exit with a clear message.
-
----
-
-## AWS Credentials
-
-Seamless Glance uses the standard AWS credential chain:
-
-- `AWS_PROFILE`
-- `~/.aws/credentials`
-- `~/.aws/config`
-- Environment variables
-
-Example:
+After installation, place your license file at:
 
 ```bash
-export AWS_PROFILE=prod
-seamless-glance
+mv license.json ~/.seamless-glance/license.json
 ```
 
----
-
-## Keyboard Shortcuts
-
-| Key       | Action           |
-| --------- | ---------------- |
-| `1`       | Account Overview |
-| `2`       | Cost View        |
-| `3`       | ECS              |
-| `4`       | Lambda           |
-| `5`       | API Gateway      |
-| `6`       | SQS              |
-| `7`       | VPC              |
-| `/`       | Command palette  |
-| `←` / `→` | Switch region    |
-| `?`       | Help             |
-| `q`       | Quit             |
+To get a license visit: https://seamlessglance.com
 
 ---
 
-## Why Seamless Glance?
+## Notes
 
-The AWS Console is powerful — but slow and noisy.
+- Seamless Glance is a commercial tool distributed under a proprietary license.
+- This Homebrew tap is intended for convenience and distribution only.
+- The AWS Console remains the source of truth for configuration and changes.
 
-Seamless Glance is built for:
+## Support
 
-- DevOps engineers
-- Platform engineers
-- Cloud-heavy developers
-
-It’s ideal for:
-
-- Daily sanity checks
-- Incident triage
-- Cost awareness
-- Navigating unfamiliar AWS accounts
+- Product site: https://seamlessglance.com
+- Source Distribution: https://github.com/fells-code/seamless-glance-distro
+- Issues and bugs: https://github.com/fells-code/seamless-glance-distro/issues
+- Suport email: support@fellscode.com
+- License assistance: licenses@fellscode.com
 
 ---
 
-## License
-
-Seamless Glance is commercial software.
-A valid license is required to run the application.
-
----
-
-## Support & Issues
-
-Please open issues or feature requests here:
-
-https://github.com/fellscode/seamless-glance-distro/issues
+© Fells Code
