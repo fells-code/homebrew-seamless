@@ -14,9 +14,9 @@ class SeamlessGlance < Formula
     odie "Seamless Glance is currently supported on macOS via Homebrew"
   end
 
- def install
-    bin.install "seamless-glance"
-    bin.install_symlink "#{bin}/seamless-glance" => "glance"
+  def install
+    bin.install Dir["seamless-glance-*"].first => "seamless-glance"
+    bin.install_symlink "seamless-glance" => "glance"
   end
 
   test do
