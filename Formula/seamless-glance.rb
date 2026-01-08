@@ -16,7 +16,7 @@ class SeamlessGlance < Formula
 
  def install
     bin.install "seamless-glance"
-    bin.install_symlink "seamless-glance" => "glance"
+    bin.install_symlink "#{bin}/seamless-glance" => "glance"
   end
 
   test do
