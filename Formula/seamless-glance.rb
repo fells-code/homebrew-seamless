@@ -1,25 +1,34 @@
 class SeamlessGlance < Formula
   desc "Fast, read-only AWS TUI for cloud infrastructure visibility"
-  homepage "https://seamlessglance.com"
-  license "Proprietary"
-  version "1.0.0"
+  homepage "https://github.com/fells-code/seamless-glance"
+  license "GPL-3.0-only"
+  version "1.2.0"
 
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v1.0.0/seamless-glance-1.0.0-aarch64-apple-darwin"
-    sha256 "54f8fab739921d60510ddf24f61cef35a2d69ec355be38261bf742c7d0a131d9"
-  elsif OS.mac?
-    url "https://github.com/fells-code/seamless-glance-distro/releases/download/v1.0.0/seamless-glance-1.0.0-x86_64-apple-darwin"
-    sha256 "68d2bf417ca6c976429dfe406b8ca50ea65cbe29df7a294a32dedc2781c6f24d"
-  else
-    odie "Seamless Glance is currently supported on macOS via Homebrew"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-aarch64-apple-darwin"
+      sha256 "98e49e6fbf0f212b11ad9fbeb924dc7297baf3f2ae47fb0caa003e28bfb7e85b"
+    else
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-x86_64-apple-darwin"
+      sha256 "85ad270589d8e874b0e465b210c46ecb8fd06ba2227a2004df539795fc5225da"
+    end
   end
 
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-aarch64-unknown-linux-gnu"
+      sha256 "18ad728c34277dd4c4b19de5f0347939b03d112ea3210462ba5ab34330ca7987"
+    else
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-x86_64-unknown-linux-gnu"
+      sha256 "d127a55a53f77e5799048fe57b0440a36eecd28fd61c93d9f4a9800d03513aa8"
+    end
+  end
   def install
     bin.install Dir["seamless-glance-*"].first => "seamless-glance"
     bin.install_symlink "seamless-glance" => "glance"
   end
 
   test do
-    system "#{bin}/seamless-glance", "--help"
+    system "#{bin}/seamless-glance", "--version"
   end
 end
