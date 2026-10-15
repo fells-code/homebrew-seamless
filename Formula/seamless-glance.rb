@@ -1,26 +1,26 @@
 class SeamlessGlance < Formula
   desc "Fast, read-only AWS TUI for cloud infrastructure visibility"
   homepage "https://github.com/fells-code/seamless-glance"
-  license "GPL-3.0-only"
-  version "1.2.0"
+  license "Apache-2.0"
+  version "1.3.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-aarch64-apple-darwin"
-      sha256 "98e49e6fbf0f212b11ad9fbeb924dc7297baf3f2ae47fb0caa003e28bfb7e85b"
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.3.0/seamless-glance-1.3.0-aarch64-apple-darwin"
+      sha256 "8ff94fffc995e3c708791e0b9547c6ea8c2898a4dbce27cfe8c772840e7cf3f2"
     else
-      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-x86_64-apple-darwin"
-      sha256 "85ad270589d8e874b0e465b210c46ecb8fd06ba2227a2004df539795fc5225da"
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.3.0/seamless-glance-1.3.0-x86_64-apple-darwin"
+      sha256 "1be0f850c448bd8162a054792c55244114be1507d79df0909d30baaa92e95955"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-aarch64-unknown-linux-gnu"
-      sha256 "18ad728c34277dd4c4b19de5f0347939b03d112ea3210462ba5ab34330ca7987"
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.3.0/seamless-glance-1.3.0-aarch64-unknown-linux-gnu"
+      sha256 "5ed68638f99374fd7bab0dc34903f8b669844b10d00dec469e4df7e203c701f6"
     else
-      url "https://github.com/fells-code/seamless-glance/releases/download/v1.2.0/seamless-glance-1.2.0-x86_64-unknown-linux-gnu"
-      sha256 "d127a55a53f77e5799048fe57b0440a36eecd28fd61c93d9f4a9800d03513aa8"
+      url "https://github.com/fells-code/seamless-glance/releases/download/v1.3.0/seamless-glance-1.3.0-x86_64-unknown-linux-gnu"
+      sha256 "ec7fda51b5134fbf5c1a8194bfdf9715869ceb892159126b833153fa128b8b51"
     end
   end
   def install
