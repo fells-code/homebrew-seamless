@@ -164,9 +164,15 @@ glance
 - Uses official AWS SDKs
 - No calls outside AWS APIs and operator-triggered browser opens
 
-Verification guidance:
+Verifying what you install:
 
-https://seamlessglance.com/verify
+- Homebrew checks every download against the SHA-256 pinned in
+  [`Formula/seamless-glance.rb`](Formula/seamless-glance.rb) and refuses to
+  install a binary that does not match.
+- For a manual download, compare the binary's checksum with the
+  `SHA256SUMS.txt` attached to the same release on
+  https://github.com/fells-code/seamless-glance/releases, for example
+  `shasum -a 256 seamless-glance-1.3.0-aarch64-apple-darwin`.
 
 ---
 
