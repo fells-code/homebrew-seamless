@@ -8,9 +8,9 @@ This file is for coding agents working in the `homebrew-seamless` repository.
 AWS operations dashboard. It hosts the formula that installs the released
 binary on macOS via `brew tap fells-code/seamless && brew install seamless-glance`.
 
-The product source lives in `seamless-glance`, and the release binaries are
-published from `seamless-glance-distro`. This tap only points Homebrew at those
-releases, so its job is to stay accurately in sync with them.
+The product source and release binaries live in `seamless-glance`. This tap only
+points Homebrew at those releases, so its job is to stay accurately in sync with
+them.
 
 ## Working Standards (fells-code baseline)
 
@@ -60,13 +60,17 @@ README.md              tap install/usage docs
 
 ## Releasing a New Version
 
-When Seamless Glance publishes a new release from `seamless-glance-distro`:
+The release workflow in `seamless-glance` (`.github/workflows/release.yml`)
+regenerates `Formula/seamless-glance.rb` from the release's `SHA256SUMS.txt` and
+pushes it here, so a normal release needs no manual edit. If the formula ever
+has to be fixed by hand:
 
 1. Bump `version` in `Formula/seamless-glance.rb`.
-2. Update each per-architecture `url` to the new release asset.
-3. Update each matching `sha256` to the new asset checksum.
+2. Update each per-architecture `url` to the new release asset on
+   `fells-code/seamless-glance`.
+3. Update each matching `sha256` from that release's `SHA256SUMS.txt`.
 4. Run `brew audit`/`brew style` and install the formula locally to confirm it
    resolves and runs.
 
 Keep the tap version, URLs, and checksums exactly aligned with the published
-distro release; a mismatch breaks installs for everyone.
+release; a mismatch breaks installs for everyone.
